@@ -1,8 +1,10 @@
 #!/bin/sh
 
-WG_PRIVKEY=$(wg genkey)
-echo $WG_PRIVKEY > /etc/wireguard/link0.key
-
+# only generate a new key if link0.key is missing or empty
+if ! [[ -s /etc/wireguard/link0.key ]]; then
+    WG_PRIVKEY=$(wg genkey)
+    echo $WG_PRIVKEY > /etc/wireguard/link0.key
+fi
 
 ip link add link0 type wireguard
 
