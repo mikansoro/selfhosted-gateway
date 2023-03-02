@@ -25,7 +25,7 @@ This project automates the provisioning of a **Reverse Proxy-over-VPN (RPoVPN)**
   - Open ports 80/443 (http(s)).
   - UDP port range listed `/proc/sys/net/ipv4/ip_local_port_range` exposed to the internet.
   - SSH access to the `gateway`.
-  - `docker`, `git` & `make` installed.
+  - `docker`, `git`, `jq`, & `make` installed.
 - Server with one or more services defined in a `docker-compose.yml` that you would like to expose to the internet.
 - A local machine to run the commands on. This may also be the server where the exposed services will run.
   - `docker`, `git` & `make` installed on the local machine.
