@@ -3,6 +3,11 @@ set -euxo pipefail
 
 echo $GATEWAY_CLIENT_WG_PRIVKEY > /etc/wireguard/link0.key
 
+if [ -n "$TLS_CUSTOM_CERTIFICATE_PATH" ]; then
+   export TLS_CONFIG="tls ${TLS_CUSTOM_CERTIFICATE_PATH}/tls.crt ${TLS_CUSTOM_CERTIFICATE_PATH}/tls.key"
+else
+    export TLS_CONFIG=""
+fi
 
 ip link add link0 type wireguard
 

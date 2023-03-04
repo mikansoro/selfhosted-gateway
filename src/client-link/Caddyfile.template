@@ -8,5 +8,6 @@ $LINK_DOMAIN {
 	    respond "OK" 200
 	}
 
+    $TLS_CONFIG
     reverse_proxy $EXPOSE
 }
